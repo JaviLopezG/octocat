@@ -1,0 +1,43 @@
+<div class="box">
+    <h2>PLAYER CONTROLS</h2>
+    <p>Logged in as: <strong>
+            <%= username %>
+        </strong></p>
+
+    <div style="margin: 20px 0; text-align: center;">
+        <img class="no-scanlines" src="<%= badgeUrl %>" alt="Badge Preview">
+        <p>Current Badge Preview</p>
+    </div>
+</div>
+
+<div class="box">
+    <h3>ACTIONS</h3>
+
+    <div style="display: flex; flex-direction: column; align-items: center; gap: 20px;">
+        <!-- Refresh Cache Form -->
+        <form action="/api/refresh-cache" method="POST">
+            <button type="submit" class="btn">
+                ↻ RELOAD CACHE
+            </button>
+            <p style="margin: 0;">Useful for testing changes immediately.</p>
+        </form>
+
+        <!-- Logout Form -->
+        <form action="/logout" method="POST">
+            <button type="submit" class="btn">
+                ← LOGOUT
+            </button>
+        </form>
+
+        <!-- Delete Account Form -->
+        <form action="/api/delete-account" method="POST"
+            onsubmit="return confirm('WARNING: THIS IS GAME OVER via PERMANENT DELETION. ARE YOU SURE?');">
+            <button type="submit" class="btn btn-danger">
+                ☠ DELETE ACCOUNT
+            </button>
+            <p style="margin: 0; color: var(--neon-pink);">
+                Removes token and cache. Badge will stop working.
+            </p>
+        </form>
+    </div>
+</div>

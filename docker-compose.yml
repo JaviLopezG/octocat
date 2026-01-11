@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  octocat:
+    build: .
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    env_file:
+      - .env
+    volumes:
+      - ./data:/app/data
+      - ./assets:/app/assets
+      - ./configuration-map.js:/app/configuration-map.js
+    # Ensure this network matches your Caddy's network if applicable
+    # networks:
+    #   - caddy_net 

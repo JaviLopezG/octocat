@@ -1,0 +1,66 @@
+<div class="box text-center">
+    <h2>WEEKLY HIGH SCORES</h2>
+    <p>Player: <strong style="color: var(--neon-cyan)">
+            <%= username %>
+        </strong></p>
+</div>
+
+<!-- Metric Selector -->
+<div class="metric-selector box">
+    <p>SELECT METRIC:</p>
+    <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 10px;">
+        <% metrics.forEach(function(m) { %>
+            <a href="?metric=<%= m.key %>" class="btn"
+                style="padding: 10px; <%= currentMetric === m.key ? 'background: var(--neon-green); color: black;' : '' %>">
+                <%= m.label %>
+            </a>
+            <% }); %>
+    </div>
+</div>
+
+<!-- High Score Table -->
+<div class="box">
+    <h3>TOP RANKINGS (<%= currentMetricLabel %>)</h3>
+
+    <% if (repos.length===0) { %>
+        <p class="text-center">NO DATA FOUND FOR THIS WEEK.</p>
+        <% } else { %>
+            <table class="stats-table">
+                <thead>
+                    <tr>
+                        <th>RANK</th>
+                        <th>REPOSITORY</th>
+                        <th>SCORE</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% repos.forEach(function(repo, index) { %>
+                        <tr>
+                            <td style="color: var(--neon-pink)">
+                                <%= index + 1 %>
+                            </td>
+                            <td>
+                                <a href="<%= repo.url %>" target="_blank">
+                                    <%= repo.name %>
+                                </a>
+                            </td>
+                            <td style="color: var(--neon-cyan)">
+                                <%= repo.value %>
+                            </td>
+                        </tr>
+                        <% }); %>
+                </tbody>
+            </table>
+            <% } %>
+</div>
+
+<% if (!isLoggedIn) { %>
+    <div class="text-center box" style="margin-top: 30px;">
+        <p>WANT YOUR OWN JUGGLER?</p>
+        <a href="/login" class="btn">INSERT COIN (LOGIN)</a>
+    </div>
+    <% } else { %>
+        <div class="text-center" style="margin-top: 20px;">
+            <a href="/controls" class="btn">MY CONTROLS</a>
+        </div>
+        <% } %>
