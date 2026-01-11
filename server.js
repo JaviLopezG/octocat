@@ -93,7 +93,6 @@ const badgeCache = new Map();
 // Helper: Badge Asset Resolution
 function resolveAssets(repos, status) {
     const selectedLayers = [];
-
     for (const [category, rules] of Object.entries(config.layers)) {
         if (typeof rules === 'string') {
             selectedLayers.push(rules);
@@ -282,6 +281,9 @@ app.post('/api/refresh-cache', (req, res) => {
     if (!req.session || !req.session.username) {
         return res.status(401).send('Unauthorized');
     }
+    console.log("Delete " + req.session.username);
+
+    badgeCache.set(req.session.username, null);
     badgeCache.delete(req.session.username);
     res.redirect('/controls');
 });
@@ -309,6 +311,7 @@ app.post('/api/delete-account', async (req, res) => {
     }
 
     delete userTokens[username];
+    badgeCache.set(username, null);
     badgeCache.delete(username);
     saveTokens();
     req.session = null;
