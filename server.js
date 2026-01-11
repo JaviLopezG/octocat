@@ -1,4 +1,4 @@
-// server.js: Octo-Juggler Web & Badge Server
+// server.js: This file handles the express server configuration, GitHub OAuth authentication flow, and dynamic SVG badge generation for the Octo-Juggler application.
 const express = require('express');
 const axios = require('axios');
 const dotenv = require('dotenv');
@@ -352,7 +352,9 @@ app.get('/badge/:username', async (req, res) => {
         badgeCache.set(username, { svg, time: Date.now() });
 
         res.setHeader('Content-Type', 'image/svg+xml');
-        res.setHeader('Cache-Control', 'public, max-age=3600');
+        res.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate');
+        res.setHeader('Pragma', 'no-cache');
+        res.setHeader('Expires', '0');
         res.send(svg);
     } catch (err) {
         console.error("Badge Gen Error:", err.message);
