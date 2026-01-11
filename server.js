@@ -6,7 +6,7 @@ const path = require('path');
 const fs = require('fs');
 const crypto = require('crypto');
 const cookieSession = require('cookie-session');
-const config = require('./config.js');
+const config = require('./configuration-map.js');
 const expressLayouts = require('express-ejs-layouts');
 
 dotenv.config();
