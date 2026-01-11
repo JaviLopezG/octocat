@@ -2,7 +2,6 @@
  * Octo-Juggler Layer Configuration
  * The order of the keys defines the stacking order (the last one is on top).
  */
-const shortcodes = require('./config-shortcodes.js');
 
 module.exports = {
   layers: {
