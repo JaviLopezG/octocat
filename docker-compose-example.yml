@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   octocat:
     build: .
@@ -12,9 +10,8 @@ services:
       - ./data:/app/data
       - ./assets:/app/assets
       - ./configuration-map.js:/app/configuration-map.js
-    # Ensure this network matches your Caddy's network if applicable
     networks:
-      - caddy_net 
+      - caddy_net
 
 networks:
   caddy_net:
