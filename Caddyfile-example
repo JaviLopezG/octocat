@@ -1,0 +1,6 @@
+# Add this block to your Caddyfile
+# Ensure Caddy can reach the 'octocat' container (e.g. shared network)
+
+octocat.yups.me {
+    reverse_proxy octocat:3000
+}

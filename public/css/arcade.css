@@ -1,0 +1,198 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap');
+
+:root {
+  --neon-green: #39ff14;
+  --neon-pink: #ff00ff;
+  --neon-cyan: #00ffff;
+  --bg-color: #111;
+  --text-color: #eee;
+  --scanline-color: rgba(18, 16, 16, 0.5);
+  /* darkened for overlay */
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: 'VT323', monospace;
+  /* More readable for body text */
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  font-size: 1.2rem;
+  line-height: 1.4;
+}
+
+h1,
+h2,
+h3,
+.arcade-font {
+  font-family: 'Press Start 2P', cursive;
+  text-transform: uppercase;
+  color: var(--neon-green);
+  text-shadow: 2px 2px var(--neon-pink);
+  margin-bottom: 2rem;
+}
+
+h1 {
+  font-size: 2rem;
+  text-align: center;
+  margin-top: 2rem;
+}
+
+h2 {
+  font-size: 1.5rem;
+  color: var(--neon-cyan);
+  text-shadow: 2px 2px var(--neon-green);
+}
+
+a {
+  color: var(--neon-cyan);
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+  transition: all 0.2s;
+}
+
+a:hover {
+  border-bottom: 2px solid var(--neon-pink);
+  color: var(--neon-pink);
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+  position: relative;
+}
+
+/* CRT Scanline Effect */
+.scanlines {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom,
+      rgba(255, 255, 255, 0),
+      rgba(255, 255, 255, 0) 50%,
+      rgba(0, 0, 0, 0.2) 50%,
+      rgba(0, 0, 0, 0.2));
+  background-size: 100% 4px;
+  pointer-events: none;
+  z-index: 100;
+}
+
+.no-scanlines {
+  z-index: 101;
+  position: relative;
+}
+
+/* UI Elements */
+.btn {
+  display: inline-block;
+  background: transparent;
+  border: 4px solid var(--neon-green);
+  color: var(--neon-green);
+  padding: 15px 30px;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 1rem;
+  cursor: pointer;
+  text-transform: uppercase;
+  box-shadow: 0 0 10px var(--neon-green), inset 0 0 10px var(--neon-green);
+  transition: all 0.2s;
+  margin: 10px;
+}
+
+.btn:hover {
+  background: var(--neon-green);
+  color: #000;
+  box-shadow: 0 0 20px var(--neon-green), inset 0 0 20px var(--neon-green);
+}
+
+.btn-danger {
+  border-color: var(--neon-pink);
+  color: var(--neon-pink);
+  box-shadow: 0 0 10px var(--neon-pink), inset 0 0 10px var(--neon-pink);
+}
+
+.btn-danger:hover {
+  background: var(--neon-pink);
+  color: #000;
+  box-shadow: 0 0 20px var(--neon-pink), inset 0 0 20px var(--neon-pink);
+}
+
+.box {
+  border: 2px solid var(--neon-cyan);
+  padding: 20px;
+  margin-bottom: 20px;
+  background: rgba(0, 255, 255, 0.05);
+  box-shadow: 0 0 5px var(--neon-cyan);
+}
+
+/* Stats Table */
+.stats-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  font-family: 'VT323', monospace;
+  font-size: 1.4rem;
+}
+
+.stats-table th {
+  text-align: left;
+  border-bottom: 2px solid var(--neon-green);
+  padding: 10px;
+  color: var(--neon-green);
+}
+
+.stats-table td {
+  padding: 10px;
+  border-bottom: 1px dashed #444;
+}
+
+.stats-table tr:hover td {
+  background: rgba(57, 255, 20, 0.1);
+  color: var(--neon-green);
+}
+
+.metric-selector {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.metric-link {
+  margin: 0 10px;
+  cursor: pointer;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 0.7rem;
+}
+
+.metric-link.active {
+  color: var(--neon-pink);
+  text-decoration: underline;
+}
+
+/* Utilities */
+.text-center {
+  text-align: center;
+}
+
+.logo {
+  display: block;
+  margin: 0 auto 20px;
+  max-width: 150px;
+  image-rendering: pixelated;
+}
+
+/* Blinking Cursor */
+.cursor::after {
+  content: '█';
+  animation: blink 1s step-end infinite;
+  color: var(--neon-green);
+  margin-left: 5px;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
