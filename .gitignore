@@ -1,2 +1,3 @@
 .env
-datanode_modules
+data
+node_modules
