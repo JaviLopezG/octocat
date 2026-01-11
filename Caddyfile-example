@@ -3,4 +3,12 @@
 
 octocat.yups.me {
     reverse_proxy octocat:3000
+
+    handle /badge/* {
+        reverse_proxy octocat:3000 {
+            header_down Cache-Control "no-cache, no-store, must-revalidate"
+            header_down Expires "0"
+            header_down Pragma "no-cache"
+        }
+    }
 }
