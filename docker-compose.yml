@@ -13,5 +13,9 @@ services:
       - ./assets:/app/assets
       - ./configuration-map.js:/app/configuration-map.js
     # Ensure this network matches your Caddy's network if applicable
-    # networks:
-    #   - caddy_net 
+    networks:
+      - caddy_net 
+
+networks:
+  caddy_net:
+    external: true
