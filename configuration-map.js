@@ -6,10 +6,10 @@ module.exports = {
   layers: {
     "background": {
       // Beach theme
-      "🏖️": "beach_small.png", ":beach_umbrella:": "beach_small.png",
+      "🏖️": "beach_small.png", ":beach_umbrella:": "beach_small.png", ":sunny:": "beach_small.png",
       "🌊": "beach_small.png", ":ocean:": "beach_small.png",
       "🌴": "beach_small.png", ":palm_tree:": "beach_small.png",
-      "⛱️": "beach_small.png", ":umbrella_on_ground:": "beach_small.png",
+      "⛱️": "beach_small.png", ":umbrella:": "beach_small.png",
       "🏄": "beach_small.png", ":surfer:": "beach_small.png",
       "🏊": "beach_small.png", ":swimmer:": "beach_small.png",
       "🚤": "beach_small.png", ":speedboat:": "beach_small.png",
@@ -35,7 +35,7 @@ module.exports = {
       "🌡️": "home_small.png", ":thermometer:": "home_small.png",
 
       // Mountain/Nature theme
-      "🏔️": "mountain_small.png", ":snow_capped_mountain:": "mountain_small.png",
+      "🏔️": "mountain_small.png", ":mountain_snow:": "mountain_small.png",
       "⛰️": "mountain_small.png", ":mountain:": "mountain_small.png",
       "🌋": "mountain_small.png", ":volcano:": "mountain_small.png",
       "🌲": "mountain_small.png", ":evergreen_tree:": "mountain_small.png",
@@ -66,7 +66,7 @@ module.exports = {
       "✨": "smile_small.png", ":sparkles:": "smile_small.png",
       "🚀": "smile_small.png", ":rocket:": "smile_small.png",
 
-      "🙁": "sad_small.png", ":slightly_frowning_face:": "sad_small.png",
+      "🙁": "sad_small.png", ":frowning:": "sad_small.png",
       "☹️": "sad_small.png", ":frowning_face:": "sad_small.png",
       "😢": "sad_small.png", ":cry:": "sad_small.png",
       "😭": "sad_small.png", ":sob:": "sad_small.png",
@@ -80,7 +80,7 @@ module.exports = {
     },
     "eyes": {
       "😎": "sunglasses_small.png", ":sunglasses:": "sunglasses_small.png",
-      "🕶️": "sunglasses_small.png", ":dark_sunglasses:": "sunglasses_small.png",
+      "🕶️": "sunglasses_small.png", ":eyeglasses:": "sunglasses_small.png",
       "☀️": "sunglasses_small.png", ":sunny:": "sunglasses_small.png",
       "🌞": "sunglasses_small.png", ":sun_with_face:": "sunglasses_small.png",
       "🚢": "sunglasses_small.png", ":ship:": "sunglasses_small.png",
